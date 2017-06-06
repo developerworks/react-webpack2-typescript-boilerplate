@@ -7,8 +7,12 @@ const open_write_file       = false;
 
 const config = {
   entry: {
+    vendors: [
+      'react-hot-loader/patch'
+    ],
     app: [
       'react-hot-loader/patch',
+      'webpack/hot/only-dev-server',
       './src/index.tsx'
     ]
   },
@@ -21,7 +25,7 @@ const config = {
   },
   devtool: 'cheap-module-source-map',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json']
   },
   module: {
     rules: [
@@ -31,7 +35,7 @@ const config = {
         include: path.resolve(__dirname, "src"),
         use: [{
           loader: 'react-hot-loader/webpack'
-        },{
+        }, {
           loader: 'awesome-typescript-loader'
         }]
       },
@@ -65,7 +69,7 @@ const config = {
       manifest: require('./dist/vendor-manifest.dll.json')
     }),
     new AddAssetHtmlPlugin([
-      {filepath: require.resolve('./dist/vendor.55026a8bdf762f1533ba.dll.js')},
+      {filepath: require.resolve('./dist/vendor.c455ba929e1f42ea8c79.dll.js')},
     ]),
   ],
   devServer: {

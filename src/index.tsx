@@ -1,26 +1,28 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { AppContainer } from "react-hot-loader";
+import * as React from "react"
+import * as ReactDOM from "react-dom"
+import { AppContainer } from "react-hot-loader"
+import { BrowserRouter, Route, Link } from "react-router-dom"
+import { message, notification, Icon } from 'antd'
+
 import App from "./App";
 
-const rootElement = document.getElementById("example");
+const rootEl = document.getElementById("app");
 
 ReactDOM.render(
   <AppContainer>
-    <App compiler="TypeScript" framework="React"/>
+    <App compiler="TypeScript" framework="React" />
   </AppContainer>,
-  document.getElementById('example')
-);
+  rootEl
+)
 
 if (module.hot) {
-
   module.hot.accept("./App", () => {
-    const NextApp = require<RequireImport>("./App").default;
+    const NextApp = require<RequireImport>("./App").default
     ReactDOM.render(
       <AppContainer>
-      <NextApp compiler="TypeScript" framework="React"/>
+        <NextApp compiler="TypeScript" framework="React" />
       </AppContainer>,
-      document.getElementById('example')
+      rootEl
     )
   })
 }
@@ -31,16 +33,16 @@ if (module.hot) {
 //       <Component compiler="TypeScript" framework="React" />,
 //     </AppContainer>,
 //     document.getElementById("example")
-//   );
+//   )
 // }
 
-// type AppComponent = new(...args: any[]) => React.Component<HelloProps, any>;
+// type AppComponent = new(...args: any[]) => React.Component<HelloProps, any>
 
 // const render = (component: AppComponent) => {
 //   const AppInit = React.createElement(component, {
 //     compiler: "TypeScript",
 //     framework: "React"
-//   });
+//   })
 //   ReactDOM.render(
 //     <AppContainer>
 //       <AppInit />
@@ -49,9 +51,9 @@ if (module.hot) {
 //   )
 // }
 
-// render(App);
+// render(App)
 // if (module.hot) {
-//   module.hot.accept('./App', () => { render(App) });
+//   module.hot.accept("./App", () => { render(App) })
 // }
 
 
